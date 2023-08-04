@@ -1,6 +1,5 @@
 # Melissa GeoCoder Object Windows Java
 
-
 ## Purpose
 
 This code showcases the Melissa GeoCoder Object using Java.
@@ -11,36 +10,30 @@ For the latest Melissa GeoCoder Object release notes, please visit: https://rele
 
 The console will ask the user for:
 
-- Zip Code
+- Zip 
 
 And return 
 
 For US:
 
-- PlaceName
+- Place Name
 - County
-- CountySubdivisionName
-- TimeZone
+- County Subdivision Name
+- Time Zone
 - Latitude
 - Longitude
-- ResultCodes
+- Result Codes
 
 For Canada:
 
-- TimeZone
+- Time Zone
 - Latitude
 - Longitude
 
-
-----------------------------------------
-
 ## Tested Environments
 
-- Windows 64-bit Java 19
-- Powershell 5.1
-- Melissa data files for 2023-06
-
-----------------------------------------
+- Windows 10 64-bit Java 19, Powershell 5.1
+- Melissa data files for 2023-07
 
 ## Required Files and Programs
 
@@ -55,13 +48,11 @@ This file needs to be added as a Project Dependency.  This wrapper will need to 
 #### Data Files
 - mdGeoCode.db3
  
-----------------------------------------
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 This project is compatible with Java 19
 
 #### Install Java
-
 Before starting, make sure that Java has been correctly installed on your machine and your environment paths are configured. 
 
 You can download Java here: 
@@ -74,9 +65,7 @@ You can check that your environment is set up correctly by opening a command pro
 
 If you see the version number then you have installed Java and set up your environment paths correctly!
 
-
 #### Set up Powershell settings
-
 If running Powershell for the first time, you will need to run this command in the Powershell console: `Set-ExecutionPolicy RemoteSigned`.
 The console will then prompt you with the following warning shown in the image below. 
  - Enter `'A'`. 
@@ -88,12 +77,11 @@ The console will then prompt you with the following warning shown in the image b
 
 #### Download this project
 ```
-$ git clone https://github.com/MelissaData/GeoObject-Java.git
+$ git clone https://github.com/MelissaData/GeoObject-Java
 $ cd GeoObject-Java
 ```
 
 #### Set up Melissa Updater 
-
 Melissa Updater is a CLI application allowing the user to update their Melissa applications/data. 
 
 - Download Melissa Updater here: <https://releases.melissadata.net/Download/Library/WINDOWS/NET/ANY/latest/MelissaUpdater.exe>
@@ -152,13 +140,10 @@ This is the expected output from a successful setup for interactive mode:
 
 ![alt text](/screenshots/output.png)
 
-    
 ## Troubleshooting
-
 Troubleshooting for errors found while running your program.
 
 ### Errors:
-
 | Error      | Description |
 | ----------- | ----------- |
 | ErrorRequiredFileNotFound      | Program is missing a required file. Please check your Data folder and refer to the list of required files above. If you are unable to obtain all required files through the Melissa Updater, please contact technical support below. |
@@ -168,7 +153,6 @@ Troubleshooting for errors found while running your program.
 
 
 ## Contact Us
-
 For free technical support, please call us at 800-MELISSA ext. 4
 (800-635-4772 ext. 4) or email us at tech@Melissa.com.
 
