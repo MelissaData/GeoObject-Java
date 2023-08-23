@@ -19,7 +19,7 @@ class FileConfig {
 
 ######################### Config ###########################
 
-$RELEASE_VERSION = '2023.07'
+$RELEASE_VERSION = '2023.08'
 $ProductName = "GEOCODER_DATA"
 
 # Uses the location of the .ps1 file 
@@ -80,10 +80,10 @@ function DownloadDataFiles([string] $license) {
 }
   
 function DownloadDLLs() {
-  Write-Host "MELISSA UPDATER IS DOWNLOADING DLL(s)..."
+  Write-Host "MELISSA UPDATER IS DOWNLOADING DLL(S)..."
   $DLLProg = 0
   foreach ($DLL in $DLLs) {
-    Write-Progress -Activity "Downloading DLL(s)" -Status "$([math]::round($DLLProg / $DLLs.Count * 100, 2))% Complete:"  -PercentComplete ($DLLProg / $DLLs.Count * 100)
+    Write-Progress -Activity "Downloading DLL(S)" -Status "$([math]::round($DLLProg / $DLLs.Count * 100, 2))% Complete:"  -PercentComplete ($DLLProg / $DLLs.Count * 100)
   
     # Check for quiet mode
     if ($quiet) {
