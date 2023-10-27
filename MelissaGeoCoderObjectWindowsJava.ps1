@@ -19,7 +19,7 @@ class FileConfig {
 
 ######################### Config ###########################
 
-$RELEASE_VERSION = '2023.09'
+$RELEASE_VERSION = '2023.10'
 $ProductName = "GEOCODER_DATA"
 
 # Uses the location of the .ps1 file 
@@ -186,10 +186,10 @@ if ([string]::IsNullOrEmpty($License)) {
 }
 # Use Melissa Updater to download data file(s) 
 # Download data file(s) 
-DownloadDataFiles -license $License      # comment out this line if using DQS Release
+DownloadDataFiles -license $License      # comment out this line if using Release
   
 # Set data file(s) path
-#$DataPath = "C:\Program Files\Melissa DATA\DQT\Data"      # uncomment this line and change to your DQS Release data file(s) directory 
+#$DataPath = "C:\Program Files\Melissa DATA\DQT\Data"      # uncomment this line and change to your Release data file(s) directory 
   
 # Download dll(s)
 DownloadDlls -license $License

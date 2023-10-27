@@ -358,6 +358,9 @@ public final static class MailboxLookupMode {
 		return mdGeoJNI.WriteToLogFile(I,logFile);
 	}
 
+	public int GeoCode(String Zip) {
+		return mdGeoJNI.GeoCode(I,Zip,"");
+	}
 	public int GeoCode(String Zip, String Plus4) {
 		return mdGeoJNI.GeoCode(I,Zip,Plus4);
 	}
@@ -386,6 +389,9 @@ public final static class MailboxLookupMode {
 		return mdGeoJNI.GetResults(I);
 	}
 
+	public String GetResultCodeDescription(String resultCode) {
+		return mdGeoJNI.GetResultCodeDescription(I,resultCode,0);
+	}
 	public String GetResultCodeDescription(String resultCode, mdGeo.ResultCdDescOpt opt) {
 		return mdGeoJNI.GetResultCodeDescription(I,resultCode,opt.toValue());
 	}

@@ -33,7 +33,7 @@ For Canada:
 ## Tested Environments
 
 - Windows 10 64-bit Java 19, Powershell 5.1
-- Melissa data files for 2023-09
+- Melissa data files for 2023-10
 
 ## Required Files and Programs
 
@@ -93,7 +93,7 @@ Melissa Updater is a CLI application allowing the user to update their Melissa a
 #### Different ways to get data file(s)
 1.  Using Melissa Updater
 	- It will handle all of the data download/path and dll(s) for you. 
-2.  If you already have the latest DQS Release (ZIP), you can find the data file(s) and dll(s) in there
+2.  If you already have the latest Release (ZIP), you can find the data file(s) and dll(s) in there
 	- Use the location of where you copied/installed the data and update the "$DataPath" variable in the powershell script.
 	- Copy all the dll(s) mentioned above into the `MelissaGeoCoderObjectWindowsJava` project folder.
 	
