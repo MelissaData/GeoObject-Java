@@ -35,7 +35,7 @@ For Canada:
 ## Tested Environments
 
 - Windows 10 64-bit Java 19, Powershell 5.1
-- Melissa data files for 2024-Q3
+- Melissa data files for 2024-Q4
 
 ## Required Files and Programs
 
@@ -79,8 +79,8 @@ The console will then prompt you with the following warning shown in the image b
 
 #### Download this project
 ```
-$ git clone https://github.com/MelissaData/GeoObject-Java
-$ cd GeoObject-Java
+git clone https://github.com/MelissaData/GeoObject-Java
+cd GeoObject-Java
 ```
 
 #### Set up Melissa Updater 
@@ -118,25 +118,25 @@ When you have modified the script to match your data location, let's run the scr
 There are two modes:
 - Interactive
 
-	The script will prompt the user for a zip code, then use the provided zip to test GeoCoder Object. For example:
-	```
-	$ .\MelissaGeoCoderObjectWindowsJava.ps1
-	```
-	For quiet mode:
-	```
-	$ .\MelissaGeoCoderObjectWindowsJava.ps1 -quiet
-	```
+    The script will prompt the user for a zip code, then use the provided zip to test GeoCoder Object. For example:
+    ```
+    .\MelissaGeoCoderObjectWindowsJava.ps1
+    ```
+    For quiet mode:
+    ```
+    .\MelissaGeoCoderObjectWindowsJava.ps1 -quiet
+    ```
 - Command Line
 
     You can pass a zip code in the ```-zip``` parameter and a license string in ```-license``` parameter to test GeoCoder Object. For example:
     ```
-    $ .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688"
-    $ .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688" -license "<your_license_string>"
+    .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688"
+    .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688" -license "<your_license_string>"
     ```
     For quiet mode:
     ```
-    $ .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688" -quiet
-    $ .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688" -license "<your_license_string>" -quiet
+    .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688" -quiet
+    .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688" -license "<your_license_string>" -quiet
     ```
 This is the expected output from a successful setup for interactive mode:
 
