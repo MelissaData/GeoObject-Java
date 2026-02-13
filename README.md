@@ -6,7 +6,7 @@ This code showcases the Melissa GeoCoder Object using Java.
 
 Please feel free to copy or embed this code to your own project. Happy coding!
 
-For the latest Melissa GeoCoder Object release notes, please visit: https://releasenotes.melissa.com/on-premise-api/geocoder-object/
+To view the latest Melissa GeoCoder Object release notes or to subscribe to product notifications, please visit: https://releasenotes.melissa.com/on-premise-api/geocoder-object/
 
 For further details, please visit: https://docs.melissa.com/on-premise-api/geocoder-object/geocoder-object-quickstart.html
 
@@ -34,8 +34,8 @@ For Canada:
 
 ## Tested Environments
 
-- Windows 10 64-bit Java 19, Powershell 5.1
-- Melissa data files for 2025-Q4
+- Windows 11 64-bit Java 19, Powershell 5.1
+- Melissa data files for 2026-Q1
 
 ## Required Files and Programs
 
@@ -79,8 +79,8 @@ The console will then prompt you with the following warning shown in the image b
 
 #### Download this project
 ```
-git clone https://github.com/MelissaData/GeoObject-Java
-cd GeoObject-Java
+git clone https://git.melissadata.com/dtgroup/melissadataobjectexamples/java/melissageocoderobjectwindowsjava.git
+cd melissageocoderobjectwindowsjava
 ```
 
 #### Set up Melissa Updater 

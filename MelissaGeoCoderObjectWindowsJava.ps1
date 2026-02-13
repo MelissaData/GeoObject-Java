@@ -19,7 +19,7 @@ class FileConfig {
 
 ######################### Config ###########################
 
-$RELEASE_VERSION = '2025.Q4'
+$RELEASE_VERSION = '2026.Q1'
 $ProductName = "GEOCODER_DATA"
 
 # Uses the location of the .ps1 file 
