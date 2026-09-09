@@ -1,5 +1,47 @@
-# Name:    MelissaGeoCoderObjectWindowsJava
-# Purpose: Use the Melissa Updater to make the MelissaGeoCoderObjectWindowsJava code usable
+<#
+.SYNOPSIS
+    Downloads the required components and then builds and runs MelissaGeoCoderObjectWindowsJava
+
+.DESCRIPTION
+    This script uses the Melissa Updater to fetch the data file(s), the DLL(s), the JNI
+    wrapper DLL, and a zip of the Java interface source, expands that zip into
+    com\melissadata, verifies the product DLL(s) downloaded, then compiles the sample with javac,
+    packages it into a jar, and runs it against the supplied ZIP code.
+
+    Overall flow:
+      1. Read parameters / prompt for the license and data path.
+      2. Download data file(s), DLL(s), and the Java wrapper via the Melissa Updater,
+         expanding the interface source into com\melissadata.
+      3. Confirm the product DLL(s) are present (the JNI wrapper DLL is not checked).
+      4. Compile, package, and run (single test ZIP code or interactive).
+
+.PARAMETER zip
+    ZIP code to look up.
+
+.PARAMETER dataPath
+    Path to an existing data files directory. If omitted, the script prompts for
+    a path; pressing Enter at that prompt skips it and downloads the data files
+    into the project's Data folder via the Melissa Updater. A path that does not
+    exist aborts the script.
+
+.PARAMETER license
+    License string. Resolved in this order:
+      1. This parameter.
+      2. An interactive prompt, if the parameter was not supplied.
+      3. The MD_LICENSE environment variable, if the prompt was left blank.
+    Note that the environment variable is the last resort, not the first: running
+    without -license always prompts, even when MD_LICENSE is set.
+
+.PARAMETER quiet
+    Suppresses the Melissa Updater console output during the DLL and wrapper
+    downloads. The data file download is not affected.
+
+.EXAMPLE
+    .\MelissaGeoCoderObjectWindowsJava.ps1 -license "your-license"
+
+.EXAMPLE
+    .\MelissaGeoCoderObjectWindowsJava.ps1 -zip "92688" -license "your-license"
+#>
 
 
 ######################### Parameters ##########################
@@ -8,6 +50,7 @@ param($zip = '', $dataPath = '', $license = '', [switch]$quiet = $false )
 
 ######################### Classes ##########################
 
+# Describes a single file to request from the Melissa Updater
 class FileConfig {
   [string] $FileName;
   [string] $ReleaseVersion;
@@ -19,6 +62,7 @@ class FileConfig {
 
 ######################### Config ###########################
 
+# Product release the updater pulls files for
 $RELEASE_VERSION = '2026.Q3'
 $ProductName = "GEOCODER_DATA"
 
@@ -41,6 +85,7 @@ elseif (!(Test-Path $DataPath) -and ($DataPath -ne "$ProjectPath\Data")) {
   exit
 }
 
+# Binary/DLL(s) needed to run the example
 $DLLs = @(
   [FileConfig]@{
     FileName       = "mdGeo.dll";
@@ -52,6 +97,8 @@ $DLLs = @(
   }
 )
 
+# The JNI wrapper DLL and the zip of Java interface source that exposes the DLL(s)
+# to the sample; the zip is expanded into com\melissadata
 $WrapperCom = @(
   [FileConfig]@{
     FileName       = "mdGeoJavaWrapper.dll";
@@ -73,6 +120,7 @@ $WrapperCom = @(
 
 ######################## Functions #########################
 
+# Download the product data file(s) into $DataPath via the Melissa Updater.
 function DownloadDataFiles([string] $license) {
   $DataProg = 0
   Write-Host "========================== MELISSA UPDATER ========================="
@@ -87,6 +135,7 @@ function DownloadDataFiles([string] $license) {
   
 }
   
+# Download each DLL in $DLLs into the project folder (with a progress bar).
 function DownloadDLLs() {
   Write-Host "MELISSA UPDATER IS DOWNLOADING DLL(S)..."
   $DLLProg = 0
@@ -114,6 +163,9 @@ function DownloadDLLs() {
   }
 }
 
+# Download the JNI wrapper DLL and the Java interface zip, then expand the zip
+# into com\melissadata (replacing any previous copy). Aborts if the zip is missing
+# after the download.
 function DownloadWrappers() {
   foreach ($File in $WrapperCom) {
     # Check for quiet mode
@@ -158,6 +210,7 @@ function DownloadWrappers() {
   }
 }
 
+# Verify the expected DLL(s) landed in the project folder
 function CheckDLLs() {
   Write-Host "`nDouble checking dll(s) were downloaded...`n"
   $FileMissing = $false 
@@ -240,6 +293,8 @@ javac MelissaGeoCoderObjectWindowsJava.java
 jar cvfm MelissaGeoCoderObjectWindowsJava.jar manifest.txt *.class *.dll com\melissadata\*.class
 
 # Run project
+# No ZIP code supplied -> run interactively; otherwise pass the ZIP code in.
+# The build step above switched into the project folder; Set-Location .. returns afterwards.
 if ([string]::IsNullOrEmpty($zip)) {
   java -jar MelissaGeoCoderObjectWindowsJava.jar --license $License --dataPath $DataPath
 }
