@@ -12,276 +12,68 @@ public class mdGeo {
 		delete();
 	}
 
-public final static class ProgramStatus {
-	public final static mdGeo.ProgramStatus ErrorNone=new mdGeo.ProgramStatus("ErrorNone",0);
-	public final static mdGeo.ProgramStatus ErrorOther=new mdGeo.ProgramStatus("ErrorOther",1);
-	public final static mdGeo.ProgramStatus ErrorOutOfMemory=new mdGeo.ProgramStatus("ErrorOutOfMemory",2);
-	public final static mdGeo.ProgramStatus ErrorRequiredFileNotFound=new mdGeo.ProgramStatus("ErrorRequiredFileNotFound",3);
-	public final static mdGeo.ProgramStatus ErrorFoundOldFile=new mdGeo.ProgramStatus("ErrorFoundOldFile",4);
-	public final static mdGeo.ProgramStatus ErrorDatabaseExpired=new mdGeo.ProgramStatus("ErrorDatabaseExpired",5);
-	public final static mdGeo.ProgramStatus ErrorLicenseExpired=new mdGeo.ProgramStatus("ErrorLicenseExpired",6);
+	public final static class ProgramStatus {
+		public final static mdGeo.ProgramStatus ErrorNone=new mdGeo.ProgramStatus("ErrorNone",0);
+		public final static mdGeo.ProgramStatus ErrorOther=new mdGeo.ProgramStatus("ErrorOther",1);
+		public final static mdGeo.ProgramStatus ErrorOutOfMemory=new mdGeo.ProgramStatus("ErrorOutOfMemory",2);
+		public final static mdGeo.ProgramStatus ErrorRequiredFileNotFound=new mdGeo.ProgramStatus("ErrorRequiredFileNotFound",3);
+		public final static mdGeo.ProgramStatus ErrorFoundOldFile=new mdGeo.ProgramStatus("ErrorFoundOldFile",4);
+		public final static mdGeo.ProgramStatus ErrorDatabaseExpired=new mdGeo.ProgramStatus("ErrorDatabaseExpired",5);
+		public final static mdGeo.ProgramStatus ErrorLicenseExpired=new mdGeo.ProgramStatus("ErrorLicenseExpired",6);
 
-	private final String enumName;
-	private final int enumValue;
-	private static ProgramStatus[] enumValues={ErrorNone,ErrorOther,ErrorOutOfMemory,ErrorRequiredFileNotFound,ErrorFoundOldFile,ErrorDatabaseExpired,ErrorLicenseExpired};
+		private final String enumName;
+		private final int enumValue;
+		private static ProgramStatus[] enumValues={ErrorNone,ErrorOther,ErrorOutOfMemory,ErrorRequiredFileNotFound,ErrorFoundOldFile,ErrorDatabaseExpired,ErrorLicenseExpired};
 
-	private ProgramStatus(String name,int val) {
-		enumName=name;
-		enumValue=val;
+		private ProgramStatus(String name,int val) {
+			enumName=name;
+			enumValue=val;
+		}
+
+		public static ProgramStatus toEnum(int val) {
+			for (int i=0;i<enumValues.length;i++)
+				if (enumValues[i].enumValue==val)
+					return enumValues[i];
+			throw new IllegalArgumentException("No enum "+ProgramStatus.class+" with value "+val+".");
+		}
+
+		public String toString() {
+			return enumName;
+		}
+
+		public int toValue() {
+			return enumValue;
+		}
 	}
 
-	public static ProgramStatus toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+ProgramStatus.class+" with value "+val+".");
+	public final static class ResultCdDescOpt {
+		public final static mdGeo.ResultCdDescOpt ResultCodeDescriptionLong=new mdGeo.ResultCdDescOpt("ResultCodeDescriptionLong",0);
+		public final static mdGeo.ResultCdDescOpt ResultCodeDescriptionShort=new mdGeo.ResultCdDescOpt("ResultCodeDescriptionShort",1);
+
+		private final String enumName;
+		private final int enumValue;
+		private static ResultCdDescOpt[] enumValues={ResultCodeDescriptionLong,ResultCodeDescriptionShort};
+
+		private ResultCdDescOpt(String name,int val) {
+			enumName=name;
+			enumValue=val;
+		}
+
+		public static ResultCdDescOpt toEnum(int val) {
+			for (int i=0;i<enumValues.length;i++)
+				if (enumValues[i].enumValue==val)
+					return enumValues[i];
+			throw new IllegalArgumentException("No enum "+ResultCdDescOpt.class+" with value "+val+".");
+		}
+
+		public String toString() {
+			return enumName;
+		}
+
+		public int toValue() {
+			return enumValue;
+		}
 	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class AccessType {
-	public final static mdGeo.AccessType Local=new mdGeo.AccessType("Local",0);
-	public final static mdGeo.AccessType Remote=new mdGeo.AccessType("Remote",1);
-
-	private final String enumName;
-	private final int enumValue;
-	private static AccessType[] enumValues={Local,Remote};
-
-	private AccessType(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static AccessType toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+AccessType.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class DiacriticsMode {
-	public final static mdGeo.DiacriticsMode Auto=new mdGeo.DiacriticsMode("Auto",0);
-	public final static mdGeo.DiacriticsMode On=new mdGeo.DiacriticsMode("On",1);
-	public final static mdGeo.DiacriticsMode Off=new mdGeo.DiacriticsMode("Off",2);
-
-	private final String enumName;
-	private final int enumValue;
-	private static DiacriticsMode[] enumValues={Auto,On,Off};
-
-	private DiacriticsMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static DiacriticsMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+DiacriticsMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class StandardizeMode {
-	public final static mdGeo.StandardizeMode ShortFormat=new mdGeo.StandardizeMode("ShortFormat",0);
-	public final static mdGeo.StandardizeMode LongFormat=new mdGeo.StandardizeMode("LongFormat",1);
-	public final static mdGeo.StandardizeMode AutoFormat=new mdGeo.StandardizeMode("AutoFormat",2);
-
-	private final String enumName;
-	private final int enumValue;
-	private static StandardizeMode[] enumValues={ShortFormat,LongFormat,AutoFormat};
-
-	private StandardizeMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static StandardizeMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+StandardizeMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class SuiteParseMode {
-	public final static mdGeo.SuiteParseMode ParseSuite=new mdGeo.SuiteParseMode("ParseSuite",0);
-	public final static mdGeo.SuiteParseMode CombineSuite=new mdGeo.SuiteParseMode("CombineSuite",1);
-
-	private final String enumName;
-	private final int enumValue;
-	private static SuiteParseMode[] enumValues={ParseSuite,CombineSuite};
-
-	private SuiteParseMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static SuiteParseMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+SuiteParseMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class AliasPreserveMode {
-	public final static mdGeo.AliasPreserveMode ConvertAlias=new mdGeo.AliasPreserveMode("ConvertAlias",0);
-	public final static mdGeo.AliasPreserveMode PreserveAlias=new mdGeo.AliasPreserveMode("PreserveAlias",1);
-
-	private final String enumName;
-	private final int enumValue;
-	private static AliasPreserveMode[] enumValues={ConvertAlias,PreserveAlias};
-
-	private AliasPreserveMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static AliasPreserveMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+AliasPreserveMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class AutoCompletionMode {
-	public final static mdGeo.AutoCompletionMode AutoCompleteSingleSuite=new mdGeo.AutoCompletionMode("AutoCompleteSingleSuite",0);
-	public final static mdGeo.AutoCompletionMode AutoCompleteRangedSuite=new mdGeo.AutoCompletionMode("AutoCompleteRangedSuite",1);
-	public final static mdGeo.AutoCompletionMode AutoCompletePlaceHolderSuite=new mdGeo.AutoCompletionMode("AutoCompletePlaceHolderSuite",2);
-	public final static mdGeo.AutoCompletionMode AutoCompleteNoSuite=new mdGeo.AutoCompletionMode("AutoCompleteNoSuite",3);
-
-	private final String enumName;
-	private final int enumValue;
-	private static AutoCompletionMode[] enumValues={AutoCompleteSingleSuite,AutoCompleteRangedSuite,AutoCompletePlaceHolderSuite,AutoCompleteNoSuite};
-
-	private AutoCompletionMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static AutoCompletionMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+AutoCompletionMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class ResultCdDescOpt {
-	public final static mdGeo.ResultCdDescOpt ResultCodeDescriptionLong=new mdGeo.ResultCdDescOpt("ResultCodeDescriptionLong",0);
-	public final static mdGeo.ResultCdDescOpt ResultCodeDescriptionShort=new mdGeo.ResultCdDescOpt("ResultCodeDescriptionShort",1);
-
-	private final String enumName;
-	private final int enumValue;
-	private static ResultCdDescOpt[] enumValues={ResultCodeDescriptionLong,ResultCodeDescriptionShort};
-
-	private ResultCdDescOpt(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static ResultCdDescOpt toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+ResultCdDescOpt.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class MailboxLookupMode {
-	public final static mdGeo.MailboxLookupMode MailboxNone=new mdGeo.MailboxLookupMode("MailboxNone",0);
-	public final static mdGeo.MailboxLookupMode MailboxExpress=new mdGeo.MailboxLookupMode("MailboxExpress",1);
-	public final static mdGeo.MailboxLookupMode MailboxPremium=new mdGeo.MailboxLookupMode("MailboxPremium",2);
-
-	private final String enumName;
-	private final int enumValue;
-	private static MailboxLookupMode[] enumValues={MailboxNone,MailboxExpress,MailboxPremium};
-
-	private MailboxLookupMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static MailboxLookupMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+MailboxLookupMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
 
 	protected mdGeo(long i,boolean own) {
 		ownMemory=own;

@@ -63,7 +63,7 @@ class FileConfig {
 ######################### Config ###########################
 
 # Product release the updater pulls files for
-$RELEASE_VERSION = '2026.Q3'
+$RELEASE_VERSION = '2026.Q4'
 $ProductName = "GEOCODER_DATA"
 
 # Uses the location of the .ps1 file 
